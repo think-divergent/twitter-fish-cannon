@@ -24,6 +24,8 @@ func main() {
 func runFishCannon() {
 	// TODO trying to follow this example here
 	// https://github.com/dghubble/go-twitter/blob/master/examples/streaming.go
+	// TODO figure out how to get api access credentials on twitter
+	// TODO read these from environment variable or commandline arguments?
 	config := oauth1.NewConfig("consumerKey", "consumerSecret")
 	token := oauth1.NewToken("accessToken", "accessSecret")
 	httpClient := config.Client(oauth1.NoContext, token)
