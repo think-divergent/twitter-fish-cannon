@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/fsufitch/sample-go-app-v2/server"
+	"github.com/dghubble/go-twitter/twitter"
+	"github.com/dghubble/oauth1"
+	"github.com/think-divergent/twitter-fish-cannon/server"
 	"github.com/urfave/cli"
 )
 
@@ -17,6 +19,14 @@ func main() {
 	app.Action = serve
 
 	app.RunAndExitOnError()
+}
+
+func runFishCannon() {
+	// TODO trying to follow this example here
+	// https://github.com/dghubble/go-twitter/blob/master/examples/streaming.go
+	config := oauth1.NewConfig("consumerKey", "consumerSecret")
+	token := oauth1.NewToken("accessToken", "accessSecret")
+	httpClient := config.Client(oauth1.NoContext, token)
 }
 
 func serve(ctx *cli.Context) error {
